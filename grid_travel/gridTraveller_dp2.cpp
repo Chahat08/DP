@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
 using namespace std;
 
@@ -10,6 +11,11 @@ long gridTraveller(int p, int q)
 	if (p == 0 || q == 0) return 0;
 	if (p == 1 && q == 1) return 1;
 	if (v[p - 1][q - 1] != -1) return v[p - 1][q - 1];
+
+	try {
+		if (v.at(q - 1).at(p - 1) != -1) return v[q - 1][p - 1];
+	} catch (const std::out_of_range& oor) {}
+
 	v[p - 1][q - 1] = gridTraveller(p - 1, q) + gridTraveller(p, q - 1);
 	return v[p - 1][q - 1];
 }
