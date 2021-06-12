@@ -6,6 +6,11 @@ using namespace std;
 
 vector<vector<long>> v;
 
+/*
+* TIME COMPLEXITY: O(p*q/2)
+* SPACE COMPLEXITY: O(p+q)
+*/
+
 long gridTraveller(int p, int q)
 {
 	if (p == 0 || q == 0) return 0;
