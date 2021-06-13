@@ -1,25 +1,32 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <unordered_map>
 
 using namespace std;
 
+unordered_map<string, bool> map;
+
 bool canConstruct(string target, vector<string>& words)
 {
+	if (map.find(target) != map.end()) return map[target];
 	if (target == "") return true;
-	
-	for (int i = 0; i < words.size(); ++i)
-	{
+
+	for(int i =0;i<words.size(); ++i)
 		if (target.find(words[i]) == 0)
 		{
 			string suffix = target.substr(words[i].length(), target.length() - words[i].length());
-			if (canConstruct(suffix, words)) return true;
+			bool result = canConstruct(suffix, words);
+			if (result)
+			{
+				map[target] = result;
+				return true;
+			}
 		}
-	}
 
+	map[target] = false;
 	return false;
 }
-
 int main()
 {
 	string t;
@@ -31,29 +38,9 @@ int main()
 	vector<string> wordBank(n);
 	for (auto& s : wordBank) cin >> s;
 
+
 	if (canConstruct(t, wordBank)) cout << "\nTrue" << endl;
 	else cout << "\nFalse" << endl;
 
 	return 0;
 }
-
-/*
-TEST CASES:
-
-abcdef 5
-ab abc cd def abcd
--> true
-
-skateboard 7
-bo rd ate t ska sk boar
--> false
-
-enterapotentpot 7
-a p ent enter ot o t
--> true
-
-eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef 6
-e ee eee eeee eeeee eeeeee
--> false
-
-*/
