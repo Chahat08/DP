@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
 
@@ -19,8 +20,11 @@ vector<int> one_vector()
 	return { -1 };
 }
 
+unordered_map<int, vector<int>> map;
+
 vector<int> howSum(int sum, vector<int>& v)
 {
+	if (map.find(sum) != map.end()) return map[sum];
 	if (sum == 0) return one_vector();
 	if (sum < 0) return null_vector();
 
@@ -30,7 +34,7 @@ vector<int> howSum(int sum, vector<int>& v)
 	for (int i = 0; i < v.size(); ++i)
 	{
 		vector<int> result(howSum(sum - v[i], v));
-		if (!result.empty() && result.size() < len) 
+		if (!result.empty() && result.size() < len)
 		{
 			result.push_back(v[i]);
 			final_result.clear();
@@ -38,8 +42,15 @@ vector<int> howSum(int sum, vector<int>& v)
 			len = result.size();
 		}
 	}
-	if (!final_result.empty()) return final_result;
-	else return null_vector();
+	if (!final_result.empty())
+	{
+		map[sum] = final_result;
+		return final_result;
+	}
+	else 
+	{
+		map[sum] = null_vector();  return null_vector();
+	}
 }
 
 int main()
