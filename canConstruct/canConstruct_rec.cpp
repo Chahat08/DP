@@ -4,6 +4,12 @@
 
 using namespace std;
 
+/*
+* m: size of target, n: size of array
+* TIME COMPLEXITY: O(n^m * m)
+* SPACE COMPLEXITY: O(m*m)
+*/
+
 bool canConstruct(string target, vector<string>& words)
 {
 	if (target == "") return true;

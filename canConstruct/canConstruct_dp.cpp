@@ -7,6 +7,12 @@ using namespace std;
 
 unordered_map<string, bool> map;
 
+/*
+* m: size of target, n: size of array
+* TIME COMPLEXITY: O(m*n*m)
+* SPACE COMPLEXITY: O(m*m)
+*/
+
 bool canConstruct(string target, vector<string>& words)
 {
 	if (map.find(target) != map.end()) return map[target];
