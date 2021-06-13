@@ -4,6 +4,12 @@
 
 using namespace std;
 
+/*
+* m: targetSum, n: size of array
+* TIME COMPLEXITY: O(n*m)
+* SPACE COMPLEXITY: O(m)
+*/
+
 vector<int> null_vector()
 {
 	return {};

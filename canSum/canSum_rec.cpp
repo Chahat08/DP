@@ -3,6 +3,12 @@
 
 using namespace std;
 
+/*
+* m: targetSum, n: size of array
+* TIME COMPLEXITY: O(n^m)
+* SPACE COMPLEXITY: O(m)
+*/
+
 bool canSum(int sum, vector<int>& v)
 {
 	if (sum < 0) return false;

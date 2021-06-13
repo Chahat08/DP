@@ -4,6 +4,12 @@
 
 using namespace std;
 
+/*
+* m: targetSum, n: size of array
+* TIME COMPLEXITY: O(n*m)
+* SPACE COMPLEXITY: O(m)
+*/
+
 unordered_map<int, bool> memo;
 
 bool canSum(int sum, vector<int>& v)
