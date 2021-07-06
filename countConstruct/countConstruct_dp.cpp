@@ -5,6 +5,12 @@
 
 using namespace std;
 
+/*
+* m: size of target, n: size of array
+* TIME COMPLEXITY: O(n * m * m)
+* SPACE COMPLEXITY: O(m*m)
+*/
+
 unordered_map<string, int> map;
 
 int countConstruct(string target, vector<string>& words)
