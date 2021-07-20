@@ -6,3 +6,5 @@ Some Dynamic Programming practice problems
 &nbsp;a. canSum: Decision Problem<br>
 &nbsp;b. howSum: Combination Problem<br>
 &nbsp;c. bestSum: Optimization problem<br>
+ 4. Binomial Coefficient
+
